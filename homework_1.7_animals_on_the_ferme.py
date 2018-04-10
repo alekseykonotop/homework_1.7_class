@@ -2,8 +2,6 @@
 # Задан базовых класс Ferme_animals, его наследуют на подкласса Big_animals и Feathery_animals.
 # Парнокопытные животные наслеют класс Big_animals, пернатые наследуют класс Feathery_animals.
 
-from requests import requests
-
 
 class Ferme_animals():
     location = 'Ферма'
