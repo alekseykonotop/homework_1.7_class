@@ -3,7 +3,14 @@
 # Парнокопытные животные наслеют класс Big_animals, пернатые наследуют класс Feathery_animals.
 
 
-class Ferme_animals():
+class FermeAnimals():
+    '''Класс FermeAnimals
+
+    Класс Ferme_animals является базовым для всех животных на ферме.
+    В классе производится посчет поголовья животных на ферме и выводится
+    информация по каждому животному.
+    '''
+
     location = 'Ферма'
     animal_count = 0
 
@@ -12,28 +19,37 @@ class Ferme_animals():
         self.type_animal = type_animal
         self.product = product
         self.sounds = sounds
-        print('На ферме появилось новое животное: Тип {0} | Кличка {1} | Производит {2}'.format(self.type_animal, self.name, self.product))
-        Ferme_animals.animal_count += 1
+        print('На ферме появилось новое животное: Тип {0} | Кличка {1} | Производит {2}'\
+              .format(self.type_animal, self.name, self.product))
+        FermeAnimals.animal_count += 1
 
     @staticmethod
     def how_many():
-        print('Общее кол-во животных на ферме: {0}'.format(Ferme_animals.animal_count))
+        print('Общее кол-во животных на ферме: {0}'.format(FermeAnimals.animal_count))
 
     def tell(self):
         print('Так как {0} - {1}, то издает такой звук: {2}"'.format(self.name, self.type_animal, self.sounds))
 
 
-class Big_animals(Ferme_animals): # класс крупных животных фермы
+class BigAnimals(FermeAnimals): # класс крупных животных фермы
+    '''Класс BigAnimals
+
+    В него входят все животные фермы являющиеся парнокопытными,
+    находящиеся в корпусе РКС.
+    '''
+
     building_type = 'Корпус КРС'
 
     def __init__(self, name, type_animal, product, sounds):
-        Ferme_animals.__init__(self, name, type_animal, product, sounds)
+        FermeAnimals.__init__(self, name, type_animal, product, sounds)
 
     def tell(self):
-        Ferme_animals.tell(self)
+        FermeAnimals.tell(self)
 
 
-class Cow(Big_animals):
+class Cow(BigAnimals):
+    # Подкласс Cow(корова) класса BigAnimals
+
     type_animal = 'Корова'
     product = 'Молоко'
     sounds = 'Му-у-у-у-у'
@@ -42,13 +58,15 @@ class Cow(Big_animals):
         self.type_animal = Cow.type_animal
         self.product = Cow.product
         self.sounds = Cow.sounds
-        Big_animals.__init__(self, name, self.type_animal, self.product, self.sounds)
+        BigAnimals.__init__(self, name, self.type_animal, self.product, self.sounds)
 
     def tell(self):
-        Big_animals.tell(self)
+        BigAnimals.tell(self)
 
 
-class Goat(Big_animals): # класс коза
+class Goat(BigAnimals):
+    # Подкласс Goat(коза) класса BigAnimals
+
     type_animal = 'Коза'
     product = ['молоко', 'шесть']
     sounds = 'Ме-е-е-е'
@@ -57,13 +75,15 @@ class Goat(Big_animals): # класс коза
         self.type_animal = Goat.type_animal
         self.product = Goat.product
         self.sounds = Goat.sounds
-        Big_animals.__init__(self, name, self.type_animal, self.product, self.sounds)
+        BigAnimals.__init__(self, name, self.type_animal, self.product, self.sounds)
 
     def tell(self):
-        Big_animals.tell(self)
+        BigAnimals.tell(self)
 
 
-class Sheep(Big_animals): # класс овца
+class Sheep(BigAnimals):
+    # Подкласс Sheep(овца) класса BigAnimals
+
     type_animal = 'Овца'
     product = ['молоко', 'шесть']
     sounds = 'Беееее'
@@ -72,13 +92,15 @@ class Sheep(Big_animals): # класс овца
         self.type_animal = Sheep.type_animal
         self.product = Sheep.product
         self.sounds = Sheep.sounds
-        Big_animals.__init__(self, name, self.type_animal, self.product, self.sounds)
+        BigAnimals.__init__(self, name, self.type_animal, self.product, self.sounds)
 
     def tell(self):
-        Big_animals.tell(self)
+        BigAnimals.tell(self)
 
 
-class Pig(Big_animals): # класс свинья
+class Pig(BigAnimals):
+    # Подкласс Pig(свинья) класса BigAnimals
+
     type_animal = 'Свинья'
     product = 'мясо'
     sounds = 'Хрю-хрю-хрю'
@@ -87,23 +109,31 @@ class Pig(Big_animals): # класс свинья
         self.type_animal = Pig.type_animal
         self.product = Pig.product
         self.sounds = Pig.sounds
-        Big_animals.__init__(self, name, self.type_animal, self.product, self.sounds)
+        BigAnimals.__init__(self, name, self.type_animal, self.product, self.sounds)
 
     def tell(self):
-        Big_animals.tell(self)
+        BigAnimals.tell(self)
 
 
-class Feathery_animals(Ferme_animals): # класс пернатых животных
+class FeatheryAnimals(FermeAnimals):
+    '''Класс FeatheryAnimals
+
+    В него входят все пернатые животные фермы,
+    находящиеся в корпусе пернатых.
+    '''
+
     building_type = 'Корпус пернатых'
 
     def __init__(self, name, type_animal, product, sounds):
-        Ferme_animals.__init__(self, name, type_animal, product, sounds)
+        FermeAnimals.__init__(self, name, type_animal, product, sounds)
 
     def tell(self):
-        Ferme_animals.tell(self)
+        FermeAnimals.tell(self)
 
 
-class Duck(Feathery_animals): # класс утка
+class Duck(FeatheryAnimals):
+    # Подкласс Duck(утка) класса FeatheryAnimals
+
     type_animal = 'Утка'
     product = 'утиное мясо'
     sounds = 'Кря-кря-кря'
@@ -112,13 +142,15 @@ class Duck(Feathery_animals): # класс утка
         self.type_animal = Duck.type_animal
         self.product = Duck.product
         self.sounds = Duck.sounds
-        Feathery_animals.__init__(self, name, self.type_animal, self.product, self.sounds)
+        FeatheryAnimals.__init__(self, name, self.type_animal, self.product, self.sounds)
 
     def tell(self):
-        Feathery_animals.tell(self)
+        FeatheryAnimals.tell(self)
 
 
-class Chicken(Feathery_animals): # класс курица
+class Chicken(FeatheryAnimals):
+    # Подкласс Chicken(курица) класса FeatheryAnimals
+
     type_animal = 'Курица'
     product = ['яйца', 'куриное мясо ']
     sounds = 'Ко-ко-ко'
@@ -127,12 +159,14 @@ class Chicken(Feathery_animals): # класс курица
         self.type_animal = Chicken.type_animal
         self.product = Chicken.product
         self.sounds = Chicken.sounds
-        Feathery_animals.__init__(self, name, self.type_animal, self.product, self.sounds)
+        FeatheryAnimals.__init__(self, name, self.type_animal, self.product, self.sounds)
 
     def tell(self):
-        Feathery_animals.tell(self)
+        FeatheryAnimals.tell(self)
 
-class Geese(Feathery_animals): # класс гусь
+class Geese(FeatheryAnimals):
+    # Подкласс Geese(гусь) класса FeatheryAnimals
+
     type_animal = 'Гусь'
     product = 'гусиное мясо'
     sounds = 'Га-га-га'
@@ -141,24 +175,28 @@ class Geese(Feathery_animals): # класс гусь
         self.type_animal = Geese.type_animal
         self.product = Geese.product
         self.sounds = Geese.sounds
-        Feathery_animals.__init__(self, name, self.type_animal, self.product, self.sounds)
+        FeatheryAnimals.__init__(self, name, self.type_animal, self.product, self.sounds)
 
     def tell(self):
-        Feathery_animals.tell(self)
+        FeatheryAnimals.tell(self)
+
 
 # Создадим экземпляры класса
+
 c = Cow('Буренка')
 g = Goat('Колокольчик')
 s = Sheep('Снежка')
 p = Pig('Борька')
+pig_2 = Pig('Васька')
 d = Duck('Серая Шейка')
 ch = Chicken('Кудахталка')
 ge = Geese('Декстер')
 print('') # вывели пусткую строчку
-all_animals = [c, g, s, p, d, ch, ge]
+
+all_animals = [c, g, s, p, pig_2, d, ch, ge]
 print('Какие звуки издают животные на ферме:')
 for animal in all_animals:
     animal.tell()
 
 # Подсчет кол-во животных на ферме
-Ferme_animals.how_many()
+FermeAnimals.how_many()
