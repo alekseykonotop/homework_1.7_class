@@ -164,6 +164,7 @@ class Chicken(FeatheryAnimals):
     def tell(self):
         FeatheryAnimals.tell(self)
 
+
 class Geese(FeatheryAnimals):
     # Подкласс Geese(гусь) класса FeatheryAnimals
 
