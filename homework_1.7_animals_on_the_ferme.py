@@ -183,17 +183,17 @@ class Geese(FeatheryAnimals):
 
 # Создадим экземпляры класса
 
-c = Cow('Буренка')
-g = Goat('Колокольчик')
-s = Sheep('Снежка')
-p = Pig('Борька')
+cow = Cow('Буренка')
+goat = Goat('Колокольчик')
+sheep = Sheep('Снежка')
+pig_1 = Pig('Борька')
 pig_2 = Pig('Васька')
-d = Duck('Серая Шейка')
-ch = Chicken('Кудахталка')
-ge = Geese('Декстер')
-print('') # вывели пусткую строчку
+duck = Duck('Серая Шейка')
+chicken = Chicken('Кудахталка')
+goose = Geese('Декстер')
+print('') # вывели пустую строку
 
-all_animals = [c, g, s, p, pig_2, d, ch, ge]
+all_animals = [cow, goat, sheep, pig_1, pig_2, duck, chicken, goose]
 print('Какие звуки издают животные на ферме:')
 for animal in all_animals:
     animal.tell()
