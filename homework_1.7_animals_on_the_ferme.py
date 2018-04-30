@@ -19,7 +19,7 @@ class FermeAnimals():
         self.type_animal = type_animal
         self.product = product
         self.sounds = sounds
-        print('На ферме появилось новое животное: Тип {0} | Кличка {1} | Производит {2}'\
+        print('На ферме появилось новое животное: Тип {0} | Кличка {1} | Производит {2}'
               .format(self.type_animal, self.name, self.product))
         FermeAnimals.animal_count += 1
 
@@ -31,7 +31,7 @@ class FermeAnimals():
         print('Так как {0} - {1}, то издает такой звук: {2}"'.format(self.name, self.type_animal, self.sounds))
 
 
-class BigAnimals(FermeAnimals): # класс крупных животных фермы
+class BigAnimals(FermeAnimals):  # класс крупных животных фермы
     '''Класс BigAnimals
 
     В него входят все животные фермы являющиеся парнокопытными,
@@ -192,7 +192,7 @@ pig_2 = Pig('Васька')
 duck = Duck('Серая Шейка')
 chicken = Chicken('Кудахталка')
 goose = Geese('Декстер')
-print('') # вывели пустую строку
+print('=====')
 
 all_animals = [cow, goat, sheep, pig_1, pig_2, duck, chicken, goose]
 print('Какие звуки издают животные на ферме:')
